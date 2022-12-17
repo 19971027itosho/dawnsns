@@ -15,4 +15,9 @@ class PostsController extends Controller
         $auth = Auth::user();
         return view('posts.index',['posts'=>$posts,'auth'=>$auth]);
     }
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
 }
