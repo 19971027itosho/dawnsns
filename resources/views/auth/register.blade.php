@@ -8,6 +8,7 @@
 
 {{ Form::label('ユーザー名') }}
 {{ Form::text('username',null,['class' => 'input']) }}
+<p>{{ $errors->first('username') }}</p>
 
 {{ Form::label('メールアドレス') }}
 {{ Form::text('mail',null,['class' => 'input']) }}
