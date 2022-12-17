@@ -52,7 +52,7 @@ class RegisterController extends Controller
             'username' => 'required|string|max:255',
             'mail' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:4|confirmed',
-        ]);
+        ])->validate();
     }
 
     /**
@@ -78,7 +78,7 @@ class RegisterController extends Controller
     public function register(Request $request){
         if($request->isMethod('post')){
             $data = $request->input();
-
+            $this->validator($data);
             $this->create($data);
             return redirect('added');
         }
