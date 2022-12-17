@@ -11,12 +11,13 @@
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-// Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', function () {
+    return view('welcome');
+});
 
-//Auth::routes();
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
 
 
 //ログアウト中のページ
