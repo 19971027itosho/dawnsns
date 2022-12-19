@@ -28,5 +28,5 @@
 
 {!! Form::close() !!}
 
-
+<!-- 練習２ -->
 @endsection
