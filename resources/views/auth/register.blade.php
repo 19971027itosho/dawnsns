@@ -12,12 +12,15 @@
 
 {{ Form::label('メールアドレス') }}
 {{ Form::text('mail',null,['class' => 'input']) }}
+<p>{{ $errors->first('mail') }}</p>
 
 {{ Form::label('パスワード') }}
 {{ Form::text('password',null,['class' => 'input']) }}
+<p>{{ $errors->first('password') }}</p>
 
 {{ Form::label('パスワード確認') }}
 {{ Form::text('password-confirm',null,['class' => 'input']) }}
+<p>{{ $errors->first('password') }}</p>
 
 {{ Form::submit('登録') }}
 
