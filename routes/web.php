@@ -35,10 +35,22 @@ Route::get('/top','PostsController@index');
 
 Route::get('/profile','UsersController@profile');
 
-Route::get('/search','UsersController@index');
+Route::get('/search','UsersController@search');
+Route::post('/result','UsersController@result');
 
-Route::get('/follow-list','PostsController@index');
+Route::get('/follow-list','followsController@followList');
 Route::get('/follower-list','PostsController@index');
 
+Route::get('/add-follow/{id}','followsController@addFollow');
+Route::get('/rem-follow/{id}','followsController@remFollow');
 
+Route::post('/post/create','PostsController@create');
+
+Route::get('post/{id}/update-form', 'PostsController@updateForm');
+Route::post('post/update', 'PostsController@update');
+
+Route::get('/other-profile/{id}', 'followsController@otherProfile');
+
+Route::get('/post/{id}/delete','PostsController@delete');
+Auth::routes();
 
