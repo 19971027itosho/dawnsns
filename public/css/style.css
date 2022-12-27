@@ -20,3 +20,20 @@ header{
     flex: 0 0 19%;
     border-left: 1px solid #6C6C6C;
 }
+
+.follow-btn{
+    width:130px;
+    height: 50px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.orange{
+    background:#B95656;
+}
+
+.blue{
+    background:#4B71CA;
+}
