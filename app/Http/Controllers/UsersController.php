@@ -24,7 +24,11 @@ class UsersController extends Controller
         $users =DB::table('users')
         ->where('id','!=',Auth::id())
         ->get();
-        return view('users.search',compact('auth','follow_count','follower_count','users'));
+        $followed =DB::table('follows')
+        ->where('follower',Auth::id())
+        ->get();
+        //dd($followed);
+        return view('users.search',compact('auth','follow_count','follower_count','users','followed'));
     }
 
     public function result(Request $request){
@@ -40,6 +44,9 @@ class UsersController extends Controller
         ->where('id','!=',Auth::id())
         ->where('username','LIKE',"%".$key."%")
         ->get();
-        return view('users.search',compact('auth','follow_count','follower_count','users'));//ほぼ同じ画面に出るので同じにしている
+        $followed =DB::table('follows')
+        ->where('follower',Auth::id())
+        ->get();
+        return view('users.search',compact('auth','follow_count','follower_count','users','followed'));//ほぼ同じ画面に出るので同じにしている
     }
 }
