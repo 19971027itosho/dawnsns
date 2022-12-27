@@ -30,7 +30,13 @@ class FollowsController extends Controller
     }
     public function otherProfile(){
         $auth = Auth::user();
-        return view('follows.otherProfile');
+        $users = DB::table('users')
+        ->leftjoin('posts','users.id','posts.user_id')
+        ->select('users.id','users.username','posts.posts','users.images','posts.created_at')
+        ->where('users.id','!=',Auth::id())
+        ->get();
+        //フォロワーのプロフィール反映
+        return view('follows.otherProfile',compact('auth','follow_count','follower_count','users'));
     }
 //なぜfollow
 //オートインクリメント　プライマリーキー
