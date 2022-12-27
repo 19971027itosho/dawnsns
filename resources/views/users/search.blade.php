@@ -8,13 +8,20 @@
 
             <table class='table table-hover'>
     @foreach ($users as $user)
-    <tr>
-        <td>{{ $user->id }}</td>
-        <td>{{ $user->username }}</td>
-        <td><img src="/images/{{ $user->images }}"></td>
-        <td><a href="add-follow/{{$user->id}}">フォローする</a></td>
-        <td><a href="rem-follow/{{$user->id}}">フォロー外す</a></td>
-    </tr>
+        {{ $user->id }}
+        {{ $user->username }}
+        <img src="/images/{{ $user->images }}">
+        <!-- contains含まれていたら$user->id -->
+        @if($followed->contains('follow',$user->id))
+            <div class="follow-btn orange">
+                <a href="rem-follow/{{$user->id}}">フォロー外す</a>
+            </div>
+        @else
+            <div class="follow-btn blue">
+                <a href="add-follow/{{$user->id}}">フォローする</a>
+            </div>
+        @endif
+    <br>
     @endforeach
 </table>
 @endsection
