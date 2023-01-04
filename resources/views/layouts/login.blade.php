@@ -6,9 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="description" content="ページの内容を表す文章" />
     <title></title>
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/script.css">
+    <link rel="stylesheet" href="{{asset('css/reset.css')}}">
+    <link rel="stylesheet" href="{{asset('css/style.css')}}">
+    <link rel="stylesheet" href="{{asset('css/script.css')}}">
     <!--スマホ,タブレット対応-->
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <!--サイトのアイコン指定-->
@@ -25,13 +25,14 @@
 <body>
     <header>
         <div id = "head">
-            <h1><a><img src="images/logo.png"></a></h1>
+            <h1><a href="/top"><img src="images/main_logo.png"></a></h1>
             <div class="menu-block black">
                 <div class="menu-trigger">
-                    <p>{{$auth->username}}<img src="images/arrow.png"></p>
-                <div>
+                    <div class="">{{$auth->username}}さん<img src="images/arrow.png"></div>
+                    <div class="arrow" >∧</div>
+                </div>
                 <div class="g-navi">
-                    ∧
+
                     <ul>
                         <li><a href="/top">ホーム</a></li>
                         <li><a href="/profile">プロフィール</a></li>
@@ -49,17 +50,20 @@
             <div id="confirm">
                 <p>{{$auth->username}}さんの</p>
                 <div>
-                <p>フォロー数</p>
-                <p>{{$follow_count}}名</p>
+                フォロー数
+                {{$follow_count}}名
                 </div>
-                <p class="btn"><a href="follow-list">フォローリスト</a></p>
+                    <div class="btn blue"><a href="follow-list">フォローリスト</a>
+                    </div>
                 <div>
-                <p>フォロワー数</p>
-                <p>{{$follower_count}}名</p>
+                フォロワー数
+                {{$follower_count}}名
                 </div>
-                <p class="btn"><a href="follower-list">フォロワーリスト</a></p>
+                    <div class="btn blue"><a href="follower-list">フォロワーリスト</a>
+                    </div>
             </div>
-            <p class="btn"><a href="search">ユーザー検索</a></p>
+                <div class="btn blue"><a href="search">ユーザー検索</a>
+                </div>
         </div>
     </div>
     <footer>

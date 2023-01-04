@@ -34,6 +34,7 @@ Route::get('/logout', 'Auth\LoginController@logout');
 Route::get('/top','PostsController@index');
 
 Route::get('/profile','UsersController@profile');
+Route::post('/up-profile','UsersController@upProfile');
 
 Route::get('/search','UsersController@search');
 Route::post('/result','UsersController@result');
@@ -41,8 +42,8 @@ Route::post('/result','UsersController@result');
 Route::get('/follow-list','followsController@followList');
 Route::get('/follower-list','PostsController@index');
 
-Route::get('/add-follow/{id}','followsController@addFollow');
-Route::get('/rem-follow/{id}','followsController@remFollow');
+Route::get('/add-follow/{id}',[App\Http\Controllers\followsController::class, 'addFollow'])->name('add-follow');
+Route::get('/rem-follow/{id}',[App\Http\Controllers\followsController::class, 'remFollow'])->name('rem-follow');
 
 Route::post('/post/create','PostsController@create');
 

@@ -25,9 +25,16 @@
     align-items: left;
   }
 
+  .arrow  {
+    color: #fff;
+  }
 
-  .menu-trigger.active ∧ {
-    transform:v;
+  .arrow.active  {
+    top: 18px;
+    transform:rotate(90deg);
+    width: 10px;
+    height: 10px;
+    color: #fff;
   }
 
   .mv-wrapper{

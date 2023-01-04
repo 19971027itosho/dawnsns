@@ -2,6 +2,7 @@
 html{
 }
 body{
+
 }
 /* header */
 header{
@@ -21,6 +22,10 @@ header{
     border-left: 1px solid #6C6C6C;
 }
 
+.table{
+    margin-left: 50px;
+}
+
 .follow-btn{
     width:130px;
     height: 50px;
@@ -28,6 +33,8 @@ header{
     display: flex;
     justify-content: center;
     align-items: center;
+    float: right;
+    margin-right: 200px;
 }
 
 .orange{
@@ -36,4 +43,13 @@ header{
 
 .blue{
     background:#4B71CA;
+}
+
+.btn{
+    width:130px;
+    height: 50px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

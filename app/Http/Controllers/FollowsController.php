@@ -28,15 +28,29 @@ class FollowsController extends Controller
         $auth = Auth::user();
         return view('follows.followerList');
     }
-    public function otherProfile(){
+    public function otherProfile($id){
         $auth = Auth::user();
-        $users = DB::table('users')
+        $user = DB::table('users')
+        ->select('users.username','users.images','users.bio')
+        ->where('id',$id)
+        ->first();
+        // dd($user);
+        $posts = DB::table('users')
         ->leftjoin('posts','users.id','posts.user_id')
-        ->select('users.id','users.username','posts.posts','users.images','posts.created_at')
-        ->where('users.id','!=',Auth::id())
+        ->select('users.id','posts.posts','users.images','posts.created_at')
+        ->where('users.id',$id)
+        ->get();
+        $follow_count =DB::table('follows')
+        ->where('follower',Auth::id())
+        ->count();
+        $follower_count =DB::table('follows')
+        ->where('follow',Auth::id())
+        ->count();
+        $followed =DB::table('follows')
+        ->where('follower',Auth::id())
         ->get();
         //フォロワーのプロフィール反映
-        return view('follows.otherProfile',compact('auth','follow_count','follower_count','users'));
+        return view('follows.otherProfile',compact('auth','follow_count','follower_count','posts','user','followed'));
     }
 //なぜfollow
 //オートインクリメント　プライマリーキー

@@ -19,6 +19,9 @@ class PostsController extends Controller
         $posts = DB::table('posts')->get();
         // dd($posts);
         $auth = Auth::user();
+        $user =DB::table('users')
+        ->where('id',Auth::id())
+        ->first();
         $follow_count =DB::table('follows')
         ->where('follower',Auth::id())
         ->count();
